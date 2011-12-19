@@ -1,0 +1,18 @@
+﻿<Window x:Class="QuickRebaser.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:App="clr-namespace:QuickRebaser.App" Title="QuickRebaser" Height="270" Width="525" Name="QuickRebaser" Closed="QuickRebaser_Closed" KeyDown="QuickRebaser_KeyDown">
+    <Window.Resources>
+        <App:BorderConverter x:Key="borderConverter" />
+    </Window.Resources>
+    <Grid>
+        <App:LinesContainer x:Name="linesContainer">
+            <App:LinesContainer.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="1" Background="{Binding Converter={StaticResource borderConverter}}">
+                        <App:CommitLineTextBlock FontFamily="Consolas" Padding="3" Margin="1" Text="{Binding Path=Text}" />
+                    </Border>
+                </DataTemplate>
+            </App:LinesContainer.ItemTemplate>
+        </App:LinesContainer>
+    </Grid>
+</Window>
